@@ -1,0 +1,275 @@
+line_bot_api = linebot.LineBotApi('Fan')
+ 'Content-Type:application/json' \
+-H 'Authorization: Bearer {Fan}' \
+-d '{
+    "replyToken":"nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
+    "messages":[
+        {
+            "type":"Hai",
+            "text":"Hai Juga"
+        },
+        {
+            "type":Help",
+            "text":"May I help you?"
+        }
+    ]
+}' https://api.line.me/v2/bot/message/reply
+-H 'Content-Type:application/json' \
+-H 'Authorization: Bearer {ENTER_ACCESS_TOKEN}' \
+-d '{
+    "to": "All",
+    "messages":[
+        {
+            "type":"Hello",
+            "text":"Hello, world1"
+        },
+        {
+            "type":"Hai",
+            "text":"Hai I am Fan"
+        }
+    ]
+}' https://api.line.me/v2/bot/message/push
+-H 'Content-Type:application/json' \
+-H 'Authorization: Bearer {ENTER_ACCESS_TOKEN}' \
+-d '{
+    "to": ["Paldi","Creator"],
+    "messages":[
+        {
+            "type":"ResponName",
+            "text":"Fan :)"
+        },
+        {
+            "type":"Who Is Creator?",
+            "text":"Line://ti/p/~vivaldi92"
+        }
+    ]
+}' https://api.line.me/v2/bot/message/multicast
+-H 'Authorization: Bearer {Fan}' \
+https://api.line.me/v2/bot/profile/{vivaldi92}
+print(profile.display_name)
+print(profile.user_id)
+print(profile.picture_url)
+print(profile.status_message)
+-H 'Authorization: Bearer {Fan}' \
+https://api.line.me/v2/bot/room/{vivaldi92}/leave
+{
+  "message":"The request body has 2 error(s)",
+  "details":[
+    {"message":"May not be empty","property":"messages[0].text"},
+    {"message":"Must be one of the following values: [text, image, video, audio, location, sticker, template, imagemap]","property":"messages[1].type"}
+  ]
+}
+
+
+{
+  "message":"Invalid reply token"
+}
+{
+    "type": "Hai Fan",
+    "text": "Haiii"
+}
+{
+    "type": "Test",
+    "text": "What? 😊"
+  }
+  {
+    "type": "image",
+    "originalContentUrl": "https://example.com/original.jpg",
+    "previewImageUrl": "https://example.com/preview.jpg"
+}
+{
+    "type": "video",
+    "originalContentUrl": "https://example.com/original.mp4",
+    "previewImageUrl": "https://example.com/preview.jpg"
+}
+{
+    "type": "audio",
+    "originalContentUrl": "https://example.com/original.m4a",
+    "duration": 240000
+}
+{
+    "type": "location",
+    "title": "my location",
+    "address": "〒150-0002 東京都渋谷区渋谷２丁目２１−１",
+    "latitude": 35.65910807942215,
+    "longitude": 139.70372892916203
+}
+{
+  "type": "sticker",
+  "packageId": "1",
+  "stickerId": "1"
+}
+{
+  "type": "imagemap",
+  "baseUrl": "https://example.com/bot/images/rm001",
+  "altText": "this is an imagemap",
+  "baseSize": {
+      "height": 1040,
+      "width": 1040
+  },
+  "actions": [
+      {
+          "type": "uri",
+          "linkUri": "https://example.com/",
+          "area": {
+              "x": 0,
+              "y": 0,
+              "width": 520,
+              "height": 1040
+          }
+      },
+      {
+          "type": "message",
+          "text": "hello",
+          "area": {
+              "x": 520,
+              "y": 0,
+              "width": 520,
+              "height": 1040
+          }
+      }
+  ]
+}
+{
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+      "type": "buttons",
+      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
+      "title": "Menu",
+      "text": "Please select",
+      "actions": [
+          {
+            "type": "postback",
+            "label": "Buy",
+            "data": "action=buy&itemid=123"
+          },
+          {
+            "type": "postback",
+            "label": "Add to cart",
+            "data": "action=add&itemid=123"
+          },
+          {
+            "type": "uri",
+            "label": "View detail",
+            "uri": "http://example.com/page/123"
+          }
+      ]
+  }
+  {
+  "type": "template",
+  "altText": "this is a confirm template",
+  "template": {
+      "type": "confirm",
+      "text": "Are you sure?",
+      "actions": [
+          {
+            "type": "message",
+            "label": "Yes",
+            "text": "yes"
+          },
+          {
+            "type": "message",
+            "label": "No",
+            "text": "no"
+          }
+      ]
+  }
+}
+{
+  "type": "template",
+  "altText": "this is a carousel template",
+  "template": {
+      "type": "carousel",
+      "columns": [
+          {
+            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+            "title": "this is menu",
+            "text": "description",
+            "actions": [
+                {
+                    "type": "postback",
+                    "label": "Buy",
+                    "data": "action=buy&itemid=111"
+                },
+                {
+                    "type": "postback",
+                    "label": "Add to cart",
+                    "data": "action=add&itemid=111"
+                },
+                {
+                    "type": "uri",
+                    "label": "View detail",
+                    "uri": "http://example.com/page/111"
+                }
+            ]
+          },
+          {
+            "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+            "title": "this is menu",
+            "text": "description",
+            "actions": [
+                {
+                    "type": "postback",
+                    "label": "Buy",
+                    "data": "action=buy&itemid=222"
+                },
+                {
+                    "type": "postback",
+                    "label": "Add to cart",
+                    "data": "action=add&itemid=222"
+                },
+                {
+                    "type": "uri",
+                    "label": "View detail",
+                    "uri": "http://example.com/page/222"
+                }
+            ]
+          }
+      ]
+  }
+}
+curl -X GET \
+-H 'Authorization: Bearer {Fan}' \
+https://api.line.me/v2/bot/message/{FanBOT}/content
+curl -X GET \
+-H 'Authorization: Bearer {Fan}' \
+https://api.line.me/v2/bot/profile/{	@lcz4795e}
+{
+    "displayName":"Fan",
+    "userId":"zz06z00i",
+    "pictureUrl":"http://obs.line-apps.com/...",
+    "statusMessage":"Hello, Gaes!"
+}curl -X GET \
+-H 'Authorization: Bearer {Fan}' \
+https://api.line.me/v2/bot/group/{groupId}/member/{userId}
+{"memberIds":["Uxxxxxxxxxxxxxx...","Uxxxxxxxxxxxxxx...","Uxxxxxxxxxxxxxx..."]}
+
+{"memberIds":["Uxxxxxxxxxxxxxx...","Uxxxxxxxxxxxxxx...","Uxxxxxxxxxxxxxx..."],"next":"jxEWCEEP..."}
+curl -X POST \
+-H 'Authorization: Paldi {Fan}' \
+https://api.line.me/v2/bot/room/{roomId}/leave
+{200}
+curl -X POST  \
+-H "Content-Type:application/x-www-form-urlencoded" \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id={ENTER_CLIENT_ID}' \
+--data-urlencode 'client_secret={ENTER_CLIENT_SECRET}' \
+https://api.line.me/v2/oauth/accessToken
+{
+"access_token":"W1TeHCgfH2Liwa.....",
+"expires_in":2592000,
+"token_type":"Fan"
+}
+{
+"error":"invalid_request",
+"error_description":"some parameters missed or invalid"
+}
+curl -X POST \
+-H "Content-Type: application/x-www-form-urlencoded" \
+--data-urlencode 'access_token={ENTER_ACCESS_TOKEN}' \
+https://api.line.me/v2/oauth/revoke
+{
+"error":"invalid_request",
+"error_description":"some parameters missed or invalid"
+}
